@@ -1,9 +1,21 @@
 "use client";
 
+import fetchSuggestFromGPT from "@/lib/fetchSuggestFromGPT";
 import React, { useState } from "react";
+import useSWR from "swr";
 
 export default function TextPrompt() {
   const [prompt, setPrompt] = useState("");
+
+  const {
+    data: suggestion,
+    error,
+    isLoading,
+    mutate,
+    isValidating,
+  } = useSWR("/api/suggestion", fetchSuggestFromGPT, {
+    revalidateOnFocus: false,
+  });
 
   return (
     <section className="m-10">
