@@ -2,7 +2,6 @@
   "name": "azure",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
@@ -11,11 +10,11 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0-alpha.7"
+    "@azure/functions": "^4.0.0-alpha.9"
   },
   "devDependencies": {
     "@types/node": "^18.x",
     "typescript": "^4.0.0"
   },
-  "main": "src/functions/*.js"
+  "main": "dist/src/functions/*.js"
 }
