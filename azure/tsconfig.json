@@ -7,5 +7,5 @@
     "sourceMap": true,
     "strict": false
   },
-  "include": ["lib/*.ts"]
+  "include": ["lib/*.ts", "src/**/*.ts"]
 }

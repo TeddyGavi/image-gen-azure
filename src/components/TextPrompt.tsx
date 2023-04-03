@@ -42,7 +42,7 @@ export default function TextPrompt() {
   };
 
   return (
-    <section className="m-10 h-screen md:h-full">
+    <section className="m-10">
       <form
         onSubmit={handleSubmit}
         className="h-[50%] md:h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:divide-x shadow-md shadow-gray-500 border rounded-md"

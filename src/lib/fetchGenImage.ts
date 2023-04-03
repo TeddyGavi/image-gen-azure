@@ -1,6 +1,6 @@
 export const fetchGenImage = async () => {
-  const res = await fetch("/api/genImage", {
-    method: "POST",
+  const res = await fetch("/api/images", {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },

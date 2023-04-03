@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import TextPrompt from "@/components/TextPrompt";
 import "./globals.css";
+import Images from "@/components/Images";
 
 export const metadata = {
   title: "Image Gen",
@@ -21,6 +22,7 @@ export default function RootLayout({
         {/* Prompt */}
         <TextPrompt />
         {/* grid layout of images */}
+        <Images />
       </body>
     </html>
   );

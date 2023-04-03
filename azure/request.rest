@@ -12,3 +12,5 @@ Content-Type: application/json
   "prompt": "elmo doing the elmo slide"
 }
 
+###
+GET http://localhost:7071/api/getImages

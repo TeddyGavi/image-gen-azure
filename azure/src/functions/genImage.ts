@@ -36,8 +36,8 @@ export async function genImage(
   const buffer = axiosRes.data;
   const sasToken = await generateSaSToken();
 
+  //new client with the sas token
   const blobServiceClient = new BlobServiceClient(`${storageUrl}?${sasToken}`);
-
   const containerClient = blobServiceClient.getContainerClient(blobName);
 
   // timestamp
