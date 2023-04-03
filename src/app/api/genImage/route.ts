@@ -4,7 +4,7 @@ export async function POST(request: Request) {
   const res = await request.json();
   const prompt = res.prompt;
 
-  const resFromDalle = await fetch("http://localhost:7071/api/getImage", {
+  const resFromDalle = await fetch("http://localhost:7071/api/genImage", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

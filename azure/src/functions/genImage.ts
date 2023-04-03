@@ -16,7 +16,7 @@ import { BlobServiceClient } from "@azure/storage-blob";
 type JsonPrimitive = string | number | boolean | null;
 export type returnFromAI = { [Key in string]?: JsonPrimitive };
 
-export async function getImage(
+export async function genImage(
   request: HttpRequest,
   context: InvocationContext
 ): Promise<HttpResponseInit> {
@@ -56,8 +56,8 @@ export async function getImage(
   return { body: `Successful` };
 }
 
-app.http("getImage", {
+app.http("genImage", {
   methods: ["POST"],
   authLevel: "function",
-  handler: getImage,
+  handler: genImage,
 });

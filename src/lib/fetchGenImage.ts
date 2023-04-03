@@ -1,4 +1,4 @@
-export const fetchImage = async () => {
+export const fetchGenImage = async () => {
   const res = await fetch("/api/genImage", {
     method: "POST",
     headers: {

@@ -30,10 +30,9 @@ export const blobClient = new BlobServiceClient(
   storageUrl,
   sharedKeyCredential
 );
+const containerClient = blobClient.getContainerClient(blobName);
 
 export async function generateSaSToken() {
-  const containerClient = blobClient.getContainerClient(blobName);
-
   // list all rules for connection
   const rules = new BlobSASPermissions();
   rules.write = true;
