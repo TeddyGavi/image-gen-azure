@@ -14,12 +14,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
-      {/* HEADER */}
-      <Header />
-      {/* Prompt */}
-      <TextPrompt />
-      {/* grid layout of images */}
+      <body>
+        {children}
+        {/* HEADER */}
+        <Header />
+        {/* Prompt */}
+        <TextPrompt />
+        {/* grid layout of images */}
+      </body>
     </html>
   );
 }

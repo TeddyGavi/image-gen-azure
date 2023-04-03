@@ -1,5 +1,5 @@
 export async function GET(request: Request) {
-  const suggest = await fetch("...", {
+  const suggest = await fetch("http://localhost:7071/api/getGPTSuggestion", {
     cache: "no-store",
   });
 
