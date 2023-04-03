@@ -13,14 +13,14 @@ import {
 } from "../../lib/genSAStoken";
 import openai from "../../lib/openai";
 import { BlobServiceClient } from "@azure/storage-blob";
+type JsonPrimitive = string | number | boolean | null;
+export type returnFromAI = { [Key in string]?: JsonPrimitive };
 
 export async function getImage(
   request: HttpRequest,
   context: InvocationContext
 ): Promise<HttpResponseInit> {
-  const prompt = await request
-    .json()
-    .then((data: { prompt: string }): string => data.prompt);
+  const { prompt }: any | string = await request.json();
 
   console.log(prompt);
 
@@ -32,7 +32,7 @@ export async function getImage(
 
   const imageUrl = responseDalle.data.data[0].url;
 
-  const axiosRes = await axios.get(imageUrl, { responseType: "arraybuffer" });
+  const axiosRes = await axios.get(imageUrl!, { responseType: "arraybuffer" });
   const buffer = axiosRes.data;
   const sasToken = await generateSaSToken();
 
@@ -49,8 +49,8 @@ export async function getImage(
   try {
     await blockBlobClient.uploadData(buffer);
     console.log(`upload all good!`);
-  } catch (error) {
-    context.log(error);
+  } catch (error: any) {
+    context.log(error.message);
   }
 
   return { body: `Successful` };

@@ -14,7 +14,7 @@ export async function getGPTSuggestion(
     const res = await openai.createCompletion({
       model: "text-davinci-003",
       prompt:
-        "Write a random text prompt for DALL-E-2 to generate an image, this prompt will be shown to the user, include details such as genre, and what type of image it should be, options can include, oil painting, watercolor, digital, 4k, modern, painting etc. The image should be in a randomly chosen style from the previous century. Do not wrap the answer in quotes.",
+        "Write a random text prompt for DALL-E-2 to generate an image, this prompt will be shown to the user, include details such as genre, and what type of image it should be, options can include, oil painting, watercolor, digital, 4k, modern, painting etc. The image should be in a randomly chosen style from the previous century. Do not wrap the answer in quotes. Do not include new line characters",
       max_tokens: 100,
       temperature: 0.8,
     });
@@ -25,7 +25,7 @@ export async function getGPTSuggestion(
     return { body: text };
   } catch (error) {
     context.log(error);
-    return { jsonBody: error.message };
+    return { jsonBody: error };
   }
 }
 

@@ -19,9 +19,34 @@ export default function TextPrompt() {
 
   const loading = isLoading || isValidating;
 
+  const submitPrompt = async (useSuggestion?: boolean) => {
+    const userInput = prompt;
+    setPrompt("");
+
+    const sendToApi = useSuggestion
+      ? suggestion.trim()
+      : userInput.trim() || suggestion.trim();
+
+    const res = await fetch("/api/genImage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt: sendToApi }),
+    });
+
+    const text = await res.json();
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await submitPrompt();
+  };
+
   return (
     <section className="m-10 h-screen md:h-full">
-      <form className="h-[50%] md:h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:divide-x shadow-md shadow-gray-500 border rounded-md">
+      <form
+        onSubmit={handleSubmit}
+        className="h-[50%] md:h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:divide-x shadow-md shadow-gray-500 border rounded-md"
+      >
         <textarea
           className=" flex-grow p-4 outline-none  w-full resize-none"
           placeholder={
@@ -37,7 +62,6 @@ export default function TextPrompt() {
             type="submit"
             className=" bg-fuchsia-600 p-4 text-white font-bold transition-colors duration-200 disabled:text-gray-300 disabled:bg-gray-200 hover:bg-fuchsia-800 hover:text-slate-200 flex-grow"
             disabled={!prompt}
-            onClick={() => null}
           >
             Generate Image
           </button>
@@ -49,6 +73,7 @@ export default function TextPrompt() {
             New Suggestion
           </button>
           <button
+            onClick={() => submitPrompt(true)}
             type="button"
             className="bg-gray-600 p-4 text-white font-bold transition-colors duration-200 disabled:text-gray-300 hover:bg-gray-800 hover:text-slate-200flex-grow"
           >
