@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Image Gen",
-  description: "powered by DALLE and chatGPT",
+  description: "powered by DALL &#x2022 E and chatGPT",
 };
 
 export default function RootLayout({

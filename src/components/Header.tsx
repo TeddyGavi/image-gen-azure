@@ -25,7 +25,8 @@ export default function Header() {
         <div className="flex flex-col justify-center pl-1">
           <h1 className="font-bold text-lg md:text-xl">Image Generator</h1>
           <h2 className="hidden sm:flex font-light text-sm text-gray-500">
-            Powered DALL-E 2 Chat GPT and Microsoft Azure
+            Powered DALL <span className="font-bold"> • </span> E 2 Chat GPT and
+            Microsoft Azure
           </h2>
         </div>
       </div>

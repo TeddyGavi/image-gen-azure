@@ -10,7 +10,8 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0-alpha.9"
+    "@azure/functions": "^4.0.0-alpha.9",
+    "openai": "^3.2.1"
   },
   "devDependencies": {
     "@types/node": "^18.x",
