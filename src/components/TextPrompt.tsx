@@ -37,6 +37,7 @@ export default function TextPrompt() {
             type="submit"
             className=" bg-fuchsia-600 p-4 text-white font-bold transition-colors duration-200 disabled:text-gray-300 disabled:bg-gray-200 hover:bg-fuchsia-800 hover:text-slate-200 flex-grow"
             disabled={!prompt}
+            onClick={() => null}
           >
             Generate Image
           </button>

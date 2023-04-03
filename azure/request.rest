@@ -1,2 +1,14 @@
 ###
 GET http://localhost:7071/api/HelloWorld
+
+###
+GET http://localhost:7071/api/getGPTSuggestion
+
+###
+POST http://localhost:7071/api/getImage 
+Content-Type: application/json
+
+{
+  "prompt": "elmo doing the elmo slide"
+}
+
