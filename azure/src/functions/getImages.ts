@@ -36,7 +36,7 @@ export async function getImages(
   // A mouse riding a horse_1680551355416.png
   const sortedImagesUrls = imageUrls.sort((a, b) => {
     const aTime = +a.url.split("_").pop().toString().split(".").shift();
-    const bTime = +a.url.split("_").pop().toString().split(".").shift();
+    const bTime = +b.url.split("_").pop().toString().split(".").shift();
 
     return bTime - aTime;
   });

@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchGenImages } from "@/lib/fetchGenImages";
 import fetchSuggestFromGPT from "@/lib/fetchSuggestFromGPT";
 import React, { useState } from "react";
 import useSWR from "swr";
@@ -14,6 +15,10 @@ export default function TextPrompt() {
     mutate,
     isValidating,
   } = useSWR("/api/suggestion", fetchSuggestFromGPT, {
+    revalidateOnFocus: false,
+  });
+
+  const { mutate: updateImages } = useSWR("/api/getImages", fetchGenImages, {
     revalidateOnFocus: false,
   });
 
@@ -34,6 +39,8 @@ export default function TextPrompt() {
     });
 
     const text = await res.json();
+
+    updateImages();
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +49,7 @@ export default function TextPrompt() {
   };
 
   return (
-    <section className="m-10">
+    <section className="m-8">
       <form
         onSubmit={handleSubmit}
         className="h-[50%] md:h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:divide-x shadow-md shadow-gray-500 border rounded-md"
