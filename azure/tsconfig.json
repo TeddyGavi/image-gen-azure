@@ -7,5 +7,6 @@
     "sourceMap": true,
     "strict": false
   },
-  "include": ["lib/*.ts", "src/**/*.ts"]
+  "include": ["lib/*.ts", "src/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "local.settings.json"]
 }

@@ -1,38 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Image Generator
 
-## Getting Started
+- Bootstrapped with Nextjs
+- Tutorial reference [here](https://www.youtube.com/watch?v=0qHnVYSxZ4k&t=5829s)
+- Heavily influenced design wise by tutorial and for understanding Microsoft Azure Functions
 
-First, run the development server:
+### Goals
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- A User can input text that DALL-E-2 will read and generate an image from. A user can also chose to use a suggested prompt from ChatGPT
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Integrate OpenAI's API service
+- Implement Microsoft Azure running cloud functions, tested locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Issues
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- The set up of `Azure Function Core Tools` was very specific and version had to match precisely if I was to use `TS` on the backend
+- Fetching is done for all images in the container, rather than setting up a cached store on the front end
+- Easier to allow the refreshing of the images but not efficient at all
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Future Goals
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- User Auth
+- Client caching
+- Efficient refactor of reused code
+- Lazy loading of Images
+- Re-write sorting functions in conjunction with client caching to avoid reloading all Images whenever an Image is requested
 
-## Learn More
+### Tools
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Nextjs 13.2
+- TypeScript
+- Azure Function Core tools
+- Azure CLI
+- React Hot Toast
+- OpenAI
+- swr
+-
