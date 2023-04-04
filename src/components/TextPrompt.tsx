@@ -3,6 +3,7 @@
 import { fetchGenImages } from "@/lib/fetchGenImages";
 import fetchSuggestFromGPT from "@/lib/fetchSuggestFromGPT";
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import useSWR from "swr";
 
 export default function TextPrompt() {
@@ -28,6 +29,10 @@ export default function TextPrompt() {
     const userInput = prompt;
     setPrompt("");
 
+    const toNotify = (prompt || suggestion).slice(0, 20);
+
+    const notify = toast.loading(`DALL·E is creating: ${toNotify}...`);
+
     const sendToApi = useSuggestion
       ? suggestion.trim()
       : userInput.trim() || suggestion.trim();
@@ -39,6 +44,12 @@ export default function TextPrompt() {
     });
 
     const text = await res.json();
+
+    if (text.error) {
+      toast.error(text.error, { id: toNotify });
+    } else {
+      toast.success(`AI Generation successful!`, { id: notify });
+    }
 
     updateImages();
   };

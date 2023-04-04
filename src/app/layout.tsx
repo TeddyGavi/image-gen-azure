@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import TextPrompt from "@/components/TextPrompt";
 import "./globals.css";
 import Images from "@/components/Images";
+import ToasterProvider from "@/components/ToasterProvider";
 
 export const metadata = {
   title: "Image Gen",
@@ -16,13 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
-        {/* HEADER */}
-        <Header />
-        {/* Prompt */}
-        <TextPrompt />
-        {/* grid layout of images */}
-        <Images />
+        <ToasterProvider>
+          {/* HEADER */}
+          <Header />
+          {/* Prompt */}
+          <TextPrompt />
+          {/* grid layout of images */}
+          <Images />
+          {children}
+        </ToasterProvider>
       </body>
     </html>
   );

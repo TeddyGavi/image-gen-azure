@@ -22,14 +22,14 @@ export default function Images() {
       <section>
         <div>
           <button
-            className="fixed bottom-10 right-12 bg-emerald-600 text-white font-bold px-5 py-3 rounded-md z-20 hover:bg-emerald-700 hover:text-slate-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+            className="fixed bottom-10 right-12 bg-emerald-500 text-white font-bold px-5 py-3 rounded-md z-20 hover:bg-emerald-700 hover:text-slate-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300"
             onClick={() => mutate(images)}
           >
             {!isLoading && isValidating ? "Refreshing..." : "Refresh Images"}
           </button>
         </div>
         <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-8 md:px-10">
-          {images.imageUrls.map((image: UrlEntry, i: number) => {
+          {images?.imageUrls?.map((image: UrlEntry, i: number) => {
             return (
               <div
                 key={image.name}
