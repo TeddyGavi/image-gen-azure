@@ -34,4 +34,3 @@
 - React Hot Toast
 - OpenAI
 - swr
--
