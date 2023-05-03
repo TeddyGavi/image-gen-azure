@@ -17,13 +17,17 @@
 - Fetching is done for all images in the container, rather than setting up a cached store on the front end
 - Easier to allow the refreshing of the images but not efficient at all
 
+### Views
+
+![Basic view of app on desktop](./public/ReadMeImg/basic.png)
+
 ### Future Goals
 
-- User Auth
-- Client caching
-- Efficient refactor of reused code
-- Lazy loading of Images
-- Re-write sorting functions in conjunction with client caching to avoid reloading all Images whenever an Image is requested
+- [ ] User Auth
+- [ ] Client caching
+- [ ] Efficient refactor of reused code
+- [ ] Lazy loading of Images
+- [ ] Re-write sorting functions in conjunction with client caching to avoid reloading all Images whenever an Image is requested
 
 ### Tools
 
